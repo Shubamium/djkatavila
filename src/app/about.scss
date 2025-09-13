@@ -171,11 +171,163 @@
 		}
   }
 	
+	#playlists{
+		margin: 200px auto;
+		max-width: 1920px;
+		.pl{
+				display:flex;
+				justify-content: center;
+			flex-wrap: wrap;
+	
+			gap: 3em;
+		}
+		.cd{
+			display:flex;
+			flex-direction:column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			gap: 1em;
+			&:hover{
+				.cd-part{
+					animation: speen 15s infinite linear;
+				}
+			}
+			.cd-part{
+				width: 450px;
+				height: 450px;
+				border-radius: 1em;
+				position:relative;
+				
+				.overlay{
+					position:absolute;
+					height:100%;
+					width:100%;
+					top:0%;
+					left:0%;
+					opacity:1;
+					mix-blend-mode: overlay;
+				}
+				.art{
+					mask-image:url('/g/cdmask.png');
+					mask-size: 100% 100%;
+					filter: drop-shadow(4px 3px 0px grey);
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					border-radius: 50%;
+				}
+			}
+
+			h2{
+				font-size: 2rem;
+				margin-top: 1em;
+			}
+		
+		}	
+	}
+
+	#mixes{
+		h2{
+			font-size: 2rem;
+		}
+		.ml{
+			display: flex;
+			flex-wrap: wrap;
+			gap: 2em;
+			justify-content: center;
+			.mix{
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				text-align: center;
+				align-items: center;
+				gap: 1em;
+				&:hover{
+					.mix-part{
+						animation: sizzle 1s infinite  steps(4) alternate-reverse;
+					}
+				}
+				.mix-part{
+					width: 450px;
+					height: 300px;
+					position: relative;
+					mask-image: url('/g/cdpch.png') ;
+					mask-size: 100% 100%;
+					@keyframes sizzle {
+						from{
+							rotate: 5deg;
+						}
+						to{
+							rotate: -5deg;
+						}
+					}
+					.tape{
+						width: 100%;
+						height: 100%;
+						object-fit: 100% 100%;
+						z-index: 10;
+						position: relative;
+					}
+					.art{
+						position: absolute;
+						top: 10%;
+						left: 5%;
+						width: 55%;
+						height: 70%;
+						z-index: -1;
+						object-fit: cover;
+					}
+				}
+			}
+		}
+		max-width: 1920px;
+		margin: 0 auto;
+	}
 	.music-head{
 		margin-top: 100px;
 		height:500px;
 		background: url('/d/logo_lines.png');
 		width: 100%;
 		background-repeat: repeat-x;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.text{
+			height: 300px;
+		}
+		position: relative;
+		z-index: 1;
+		.disc{
+			height: 500px;
+			width: 500px;
+			object-fit: contain;
+			position: absolute;
+			
+			animation: dancetobeat 0.25s cubic-bezier(0.215, 0.61, 0.355, 1) alternate-reverse infinite;
+			&.l{
+				left: -200px;
+				top: 0%;
+				
+			}
+			&.r{
+				right: -200px;
+				top: 0%;
+			}
+		}
 	}
+	.btn-play{
+					background: white;
+	color:#ff00ae;
+	width: 100px;
+	height: 30px;
+	border-radius: 1em;
+	padding: .25em 1em;
+	display: block;
+	svg{
+		width: 100%;
+		height: 100%;
+	}
+	}
+
 }

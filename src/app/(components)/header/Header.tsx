@@ -1,9 +1,12 @@
-import React from "react";
+'use client';
+import React, { useState } from "react";
 
 type Props = {};
 import "./header.scss";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 export default function Header({}: Props) {
+	const pathname = usePathname();
   return (
     <>
       <header id="header">
@@ -14,13 +17,13 @@ export default function Header({}: Props) {
         <img src="/d/wave.png" alt="" className="wave l" />
         <img src="/d/wave.png" alt="" className="wave r" />
         <nav>
-          <Link href="/" className="btn btn-main active">
+          <Link href="/" className={`btn btn-main ${pathname === '/' ? 'active' : ''}`}>
             ABOUT
           </Link>
-          <Link href="/schedule" className="btn btn-main">
+          <Link href="/schedule" className={`btn btn-main ${pathname.includes('/schedule') ? 'active' : ''}`}>
             SCHEDULE
           </Link>
-          <Link href="/booking" className="btn btn-main">
+          <Link href="/booking" className={`btn btn-main ${pathname.includes('/booking') ? 'active' : ''}`}>
             BOOKING
           </Link>
         </nav>

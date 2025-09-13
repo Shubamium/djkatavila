@@ -3,6 +3,7 @@ import { Chilanka, Caveat_Brush } from "next/font/google";
 import "./globals.scss";
 import Header from "./(components)/header/Header";
 import { CSSProperties } from "react";
+import { Footer } from "./(components)/footer/Footer";
 
 const chilanka = Chilanka({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+				<Footer/>
       </body>
     </html>
   );

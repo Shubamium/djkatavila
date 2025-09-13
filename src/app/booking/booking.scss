@@ -1,0 +1,94 @@
+#p_booking{
+	#bh{
+		font-size:3rem;
+		padding: .2em 0;
+		text-align: right;
+		margin-top: 100px;
+		background: linear-gradient(to right, #D442C3, #2456a9);
+		mask-image: url('/d/bhmask.png');
+		mask-size: 100% 100%;
+	}
+
+	#bf{
+		background: url('/b/texture.png');
+		padding-bottom: 200px;
+		.confine{
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			max-width: min(90%, 1920px);
+			margin:  0 auto;
+			.l{
+				width: 100%;
+				img{
+					transform: translateY(-100px);
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			.r{
+				display: flex;
+				flex-direction: column;
+				.mail{
+					margin-top: 100px;
+					h2{
+						font-size: 2rem;
+						color: #FF00AE;
+						line-height: 1;
+						margin-bottom: 0;
+					}
+					a{
+						font-size: 4rem;
+						// line-height: 0.6;
+						display: block;
+						margin-top: -20px;
+					}
+				}
+				p{
+					font-size: 2rem;
+					color: #2456a9;
+				}
+				.fg{
+					display: grid;
+					grid-template-columns: 1fr 1fr 1fr;
+					gap: 1em;
+				}
+				.field{
+					display: flex;
+					flex-direction: column;
+					margin: 1em 0;
+					gap: .5em;
+					label{
+						color: #FF00AE;
+						text-transform: uppercase;
+						font-size: 1.5rem;
+					}
+					textarea,input,select{
+						padding: .8em;
+						border: 1px;
+						background: #1d1d1d;
+						outline: 2px solid grey;
+						font-family: var(--fontch);
+						font-size: 1rem;
+						resize: none;
+						option{
+							font-family: var(--fontch);
+						}
+					}
+					textarea{
+						width: 100%;
+						min-height: 300px;
+					}
+				}
+				.btn-submit{
+					background: #FF00AE;
+					font-family: var(--fontch);
+					font-size: 2rem;
+					max-width: fit-content;
+					padding: .25em 1em;
+					padding-top: .5em;
+				}
+			}
+		}
+	}
+}

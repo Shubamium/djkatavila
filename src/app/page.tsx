@@ -1,4 +1,5 @@
 import "./about.scss";
+import {FaPlay } from 'react-icons/fa'
 export default function Home() {
   return (
     <main id="p_about" className={""}>
@@ -13,7 +14,7 @@ export default function Home() {
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/Q9rmgcP-G04?si=41-v_fk8MbVBNTl2&autoplay=1&loop=1"
+              src="https://www.youtube.com/embed/Q9rmgcP-G04?si=41-v_fk8MbVBNTl2&autoplay=0&loop=1"
               allow=";accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
@@ -129,7 +130,7 @@ export default function Home() {
                 filterUnits="userSpaceOnUse"
                 color-interpolation-filters="sRGB"
               >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix
                   in="SourceAlpha"
                   type="matrix"
@@ -187,6 +188,84 @@ export default function Home() {
 			<section id="playlists">
 				<div className="music-head">
 					<img src="/g/playlist-text.png" alt="" className={'text'} />
+					<img src="/d/disc-r.png" alt="" className={'disc r'} />
+					<img src="/d/disc-l.png" alt="" className={'disc l'} />
+				</div>
+
+				<div className="pl">
+					<div className={'cd'}>
+						<div className="cd-part">
+							<img src="/g/cdpch.png" className={'art'}/>
+							<img src="/g/cdoverlay.png" alt="" className={'overlay'} />
+						</div>
+						<h2> Title Here</h2>
+						<a href="#" className="btn btn-play">
+							<FaPlay/>
+						</a>
+						
+					</div>
+					<div className={'cd'}>
+						<div className="cd-part">
+							<img src="/g/cdpch.png" className={'art'}/>
+							<img src="/g/cdoverlay.png" alt="" className={'overlay'} />
+						</div>
+						<h2> Title Here</h2>
+						<a href="#" className="btn btn-play">
+							<FaPlay/>
+						</a>
+						
+					</div>
+							<div className={'cd'}>
+						<div className="cd-part">
+							<img src="/g/cdpch.png" className={'art'}/>
+							<img src="/g/cdoverlay.png" alt="" className={'overlay'} />
+						</div>
+						<h2> Title Here</h2>
+						<a href="#" className="btn btn-play">
+							<FaPlay/>
+						</a>
+						
+					</div>
+				</div>
+			</section>
+			<section id="mixes">
+				<div className="music-head">
+					<img src="/g/mixes-text.png" alt="" className={'text'} />
+					<img src="/d/disc-r.png" alt="" className={'disc r'} />
+					<img src="/d/disc-l.png" alt="" className={'disc l'} />
+				</div>
+
+				<div className="ml">
+					<div className="mix">
+						<div className="mix-part">
+							<img src="/g/mixtape.png" alt="" className="tape" />
+							<img src="/g/mixtapepch.png" alt="" className="art" />
+						</div>
+						<h2>Mix Name</h2>
+						<a href="#" className="btn btn-play">
+							<FaPlay/>
+						</a>
+					</div>
+					<div className="mix">
+						<div className="mix-part">
+							<img src="/g/mixtape.png" alt="" className="tape" />
+							<img src="/g/mixtapepch.png" alt="" className="art" />
+						</div>
+						<h2>Mix Name</h2>
+						<a href="#" className="btn btn-play">
+							<FaPlay/>
+						</a>
+					</div>
+					<div className="mix">
+						<div className="mix-part">
+							<img src="/g/mixtape.png" alt="" className="tape" />
+							<img src="/g/mixtapepch.png" alt="" className="art" />
+						</div>
+						<h2>Mix Name</h2>
+						<a href="#" className="btn btn-play">
+							<FaPlay/>
+						</a>
+					</div>
 				</div>
 			</section>
     </main>
