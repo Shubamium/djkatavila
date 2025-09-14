@@ -1,6 +1,24 @@
+import { getPayload } from "payload";
 import "./about.scss";
 import {FaPlay } from 'react-icons/fa'
-export default function Home() {
+import payloadConfig from "@/payload.config";
+import { RichText } from "@payloadcms/richtext-lexical/react";
+import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
+import { Media } from "@/payload-types";
+export default async function Home() {
+	const payload = await getPayload({
+		config: await payloadConfig
+	})
+
+	const hd = await payload.findGlobal({
+		slug:'general',
+	})
+	const pl = await payload.find({
+		collection:'Playlist',
+	})
+	const ml = await payload.find({
+		collection:'Mixes',
+	})
   return (
     <main id="p_about" className={""}>
       <section id="main-about">
@@ -14,7 +32,7 @@ export default function Home() {
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/Q9rmgcP-G04?si=41-v_fk8MbVBNTl2&autoplay=0&loop=1"
+              src={`https://www.youtube.com/embed/${hd.intro_vid}?loop=1`}
               allow=";accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
@@ -23,30 +41,7 @@ export default function Home() {
           </div>
           <div className="bio">
             <img src="/d/wave_tp.png" alt="" className="wave" />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum
-            </p>
+						<RichText data={hd.bio as SerializedEditorState}/>
           </div>
         </div>
       </section>
@@ -193,7 +188,25 @@ export default function Home() {
 				</div>
 
 				<div className="pl">
-					<div className={'cd'}>
+					{
+						pl?.docs?.reverse()?.map((p,i)=>{
+							const cdart = p.cover as Media
+							return <div className={'cd'} key={p.id}>
+						<div className="cd-part">
+							<img src={cdart?.url ?? '/g/cdpch.png'} className={'art'}/>
+							<img src="/g/cdoverlay.png" alt="" className={'overlay'} />
+						</div>
+						<h2>{p.name}</h2>
+					  {
+							p.link &&	<a href={p.link} target="_blank" className="btn btn-play">
+							<FaPlay/>
+						</a>
+						}
+						
+					</div>
+						})
+					}
+					{/* <div className={'cd'}>
 						<div className="cd-part">
 							<img src="/g/cdpch.png" className={'art'}/>
 							<img src="/g/cdoverlay.png" alt="" className={'overlay'} />
@@ -203,8 +216,8 @@ export default function Home() {
 							<FaPlay/>
 						</a>
 						
-					</div>
-					<div className={'cd'}>
+					</div> */}
+							{/* <div className={'cd'}>
 						<div className="cd-part">
 							<img src="/g/cdpch.png" className={'art'}/>
 							<img src="/g/cdoverlay.png" alt="" className={'overlay'} />
@@ -214,18 +227,7 @@ export default function Home() {
 							<FaPlay/>
 						</a>
 						
-					</div>
-							<div className={'cd'}>
-						<div className="cd-part">
-							<img src="/g/cdpch.png" className={'art'}/>
-							<img src="/g/cdoverlay.png" alt="" className={'overlay'} />
-						</div>
-						<h2> Title Here</h2>
-						<a href="#" className="btn btn-play">
-							<FaPlay/>
-						</a>
-						
-					</div>
+					</div> */}
 				</div>
 			</section>
 			<section id="mixes">
@@ -236,7 +238,24 @@ export default function Home() {
 				</div>
 
 				<div className="ml">
-					<div className="mix">
+					{
+						ml?.docs?.map((m,i)=>{
+							const mart = m.cover as Media
+							return <div className="mix" key={m.id}>
+						<div className="mix-part">
+							<img src="/g/mixtape.png" alt="" className="tape" />
+							<img src={mart.url ?? "/g/mixtapepch.png" } alt="" className="art" />
+						</div>
+						<h2>{m.name}</h2>
+						{
+							m.link && <a href={m.link} target="_blank" className="btn btn-play">
+							<FaPlay/>
+						</a>
+						}
+					</div>
+						})
+					}
+					{/* <div className="mix">
 						<div className="mix-part">
 							<img src="/g/mixtape.png" alt="" className="tape" />
 							<img src="/g/mixtapepch.png" alt="" className="art" />
@@ -255,17 +274,7 @@ export default function Home() {
 						<a href="#" className="btn btn-play">
 							<FaPlay/>
 						</a>
-					</div>
-					<div className="mix">
-						<div className="mix-part">
-							<img src="/g/mixtape.png" alt="" className="tape" />
-							<img src="/g/mixtapepch.png" alt="" className="art" />
-						</div>
-						<h2>Mix Name</h2>
-						<a href="#" className="btn btn-play">
-							<FaPlay/>
-						</a>
-					</div>
+					</div> */}
 				</div>
 			</section>
     </main>
