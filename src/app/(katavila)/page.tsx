@@ -157,23 +157,23 @@ export default async function Home() {
         </div>
 
 				<div className="scl">
-					<a className={'sc btn'}>
+					<a className={'sc btn'} target="_blank" href="https://www.instagram.com/djkatavila">
 						<img src="/g/ic_ig.png" alt="" className={'icon'} />
 						<span>INSTAGRAM</span>
 					</a>
-					<a className={'sc btn'}>
+					<a className={'sc btn'} target="_blank" href="https://www.tiktok.com/@djkatavila" >
 						<img src="/g/ic_tt.png" alt="" className={'icon'} />
 						<span>TIKTOK</span>
 					</a>
-					<a className={'sc btn'}>
+					<a className={'sc btn'} target="_blank" href="https://www.youtube.com/@djkatavila/videos">
 						<img src="/g/ic_yt.png" alt="" className={'icon'} />
 						<span>YOUTUBE</span>
 					</a>
-<a className={'sc btn'}>
+<a className={'sc btn'}target="_blank"  href="https://open.spotify.com/user/317z7s5hzcvddqdpamiogvzidaam?si=f59d2be0540f42dc">
 						<img src="/g/ic_sp.png" alt="" className={'icon'} />
 						<span>SPOTIFY</span>
 					</a>
-					<a className={'sc btn'}>
+					<a className={'sc btn'} target="_blank" href="https://www.mixcloud.com/katavila">
 						<img src="/g/ic_mc.png" alt="" className={'icon'} />
 						<span>MIXCLOUD</span>
 					</a>
