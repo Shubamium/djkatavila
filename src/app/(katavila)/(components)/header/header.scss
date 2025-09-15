@@ -5,6 +5,9 @@
   background-position: bottom;
   background-blend-mode: multiply;
   height: 800px;
+	@media screen and (max-width: 550px) {
+		height: 70vh;
+	}
   width: 100%;
   display: flex;
   justify-content: center;
@@ -22,12 +25,18 @@
     filter: drop-shadow(0px 0px 10px rgb(218, 33, 166));
     user-select: none;
     pointer-events: none;
+		@media screen and (max-width: 1024px) {
+			display: none;
+		}
   }
   .palm {
     width: 200px;
     height: auto;
     position: absolute;
     filter: drop-shadow(0px 0px 10px rgb(218, 33, 166));
+		@media screen and (max-width: 1024px) {
+			width: 150px;
+		}
     &.r {
       top: -250px;
       right: -2%;
@@ -43,6 +52,8 @@
           rotate: 0deg;
         }
       }
+
+		
     }
     &.l {
       bottom: -4%;
@@ -50,6 +61,7 @@
       rotate: 10deg;
       transform-origin: bottom;
       animation: sway 20s ease infinite alternate-reverse;
+			
       @keyframes sway {
         from {
           rotate: 50deg;
@@ -70,20 +82,38 @@
     position: relative;
     z-index: 10;
     pointer-events: none;
+		@media screen and (max-width: 768px) {
+			width: 95%;
+			margin: 0 auto;
+		}
   }
   .wave {
     position: absolute;
     width: 600px;
     height: 600px;
-
+		@media screen and (max-width: 1024px) {
+			width: 300px;
+			height: 300px;
+		}
     object-fit: contain;
     &.l {
       top: -200px;
       left: -200px;
+			@media screen and (max-width: 1024px) {
+				top: -80px;
+				left: -80px;
+			}
     }
     &.r {
       top: -200px;
       right: -200px;
+				@media screen and (max-width: 420px) {
+				display: none;
+			}
+			@media screen and (max-width: 1024px) {
+				top: -80px;
+				right: -80px;
+			}
     }
     animation: speen 50s infinite linear,
       dancetobeat 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite
@@ -94,6 +124,12 @@
     display: flex;
     gap: 2em;
     margin: 2em 0;
+		@media screen and (max-width: 420px) {
+			flex-direction: column;
+			width: 100%;
+			gap: .5em;
+			align-items: center;
+		}
     .btn-main {
       font-size: 1.3rem;
       font-family: var(--fontch);
@@ -102,6 +138,12 @@
       align-items: center;
       padding-top: 0.5em;
       border-radius: 1em 1em;
+			@media screen and (max-width: 768px) {
+			font-size: 1rem;	
+			}
+			@media screen and (max-width: 420px) {
+				text-align: center;
+			}
       &:hover,
       &.active {
         background: rgba(128, 128, 128, 0.165);
@@ -116,6 +158,9 @@
   background: linear-gradient(to right, #ff50e5, #2456a9);
   display: flex;
   justify-content: space-between;
+	@media screen and (max-width: 420px) {
+		height: 20px;
+	}
   img {
     scale: 1.4;
   }

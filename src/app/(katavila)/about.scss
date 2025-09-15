@@ -1,14 +1,27 @@
+
 #p_about {
-  min-height: 5000px;
+	padding-bottom: 100px;
   #main-about {
     height: 1200px;
     background: url("/b/texture.png");
+
+		@media screen and (max-width: 1280px) {
+			height: auto;
+			padding-bottom: 200px;
+		}
     .top-part {
       margin: 0 auto;
       max-width: 1680px;
       display: flex;
       align-items: flex-start;
       padding-top: 50px;
+			@media screen and (max-width: 1440px) {
+				flex-direction: column;
+				align-items: center;
+			}
+			.intro,.pfp{
+				max-width: 100%;
+			}
     }
     .data-part {
       display: grid;
@@ -18,6 +31,13 @@
       max-width: 1680px;
       margin: 0 auto;
       margin-top: -150px;
+			@media screen and (max-width: 1440px) {
+				margin-top: 0;
+			}
+			@media screen and (max-width: 1280px) {
+				display: flex;
+				flex-direction: column;
+			}
       .video {
         width: 100%;
         height: 100%;
@@ -26,6 +46,9 @@
           left: -10%;
           top: -10%;
           z-index: -10;
+					@media screen and (max-width: 1024px) {
+						opacity: 0.12;
+					}
         }
         iframe {
           width: 100%;
@@ -56,6 +79,11 @@
         gap: 1em;
         position: relative;
         z-index: 1;
+				@media screen and (max-width: 1280px) {
+					max-width: 90%;
+					margin:  0 auto;
+					padding-top: 50px;
+				}
         .wave {
           position: absolute;
           right: -20%;
@@ -97,6 +125,10 @@
     background: url("/b/texture.png");
     position: relative;
     z-index: 1;
+		@media screen and (max-width: 768px) {
+			height: auto;
+			padding-bottom: 100px;
+		}
 		
     .shine {
       position: absolute;
@@ -111,14 +143,25 @@
 
     .sh {
       position: relative;
-
+			@media screen and (max-width: 1280px) {
+				display: grid;
+				grid-template-columns: 3fr 1fr;
+			}
       .palm {
         position: absolute;
         left: -3%;
         top: 10%;
         rotate: 23deg;
+				@media screen and (max-width: 1024px) {
+					z-index: -1;
+					opacity: 0.4;
+				}
       }
       #soctext {
+				@media screen and (max-width: 1280px) {
+					width:100%;
+					height: 250px;
+				}
         #rostar {
           animation: speen 25s infinite linear;
           transform-origin: 35% 45%;
@@ -130,6 +173,9 @@
         top: 5%;
         max-width: 500px;
         z-index: -1;
+				@media screen and (max-width: 1280px) {
+					width:30%;
+				}
       }
 
     }
@@ -143,13 +189,19 @@
 			display: flex;
 			gap: 1em;
 			justify-content: center;
-
+	@media screen and (max-width: 1280px) {
+				flex-wrap: wrap;
+			}
 			.sc{
 								background: url('/g/sc-bg.png');
 			background-size: 100% 100%;
 			width: 300px;
 			height: 300px;
 			display: flex;
+				@media screen and (max-width: 768px) {
+					width: 150px;
+					height: 150px;
+				}
 			gap: 1em;
 			flex-direction: column;
 			justify-content: center;
@@ -162,11 +214,19 @@
 				width: 150px;
 				height: 150px;
 				object-fit: contain;
+				@media screen and (max-width: 768px) {
+					width: 70px;
+					height: 70px;
+				}
 			}
 			}
 			span{
 				font-size: 2rem;
 				text-shadow: 0px 0px 4px black;
+				@media screen and (max-width: 768px) {
+					font-size: 1.2rem;
+				}
+				
 			}
 		}
   }
@@ -198,6 +258,11 @@
 				height: 450px;
 				border-radius: 1em;
 				position:relative;
+				@media screen and (max-width: 550px) {
+					width: 100%;
+					height: auto;
+					aspect-ratio: 1 / 1;
+				}
 				
 				.overlay{
 					position:absolute;
@@ -221,6 +286,10 @@
 			h2{
 				font-size: 2rem;
 				margin-top: 1em;
+					@media screen and (max-width: 550px) {
+				font-size: 1.8rem;
+			}
+	
 			}
 		
 		}	
@@ -229,6 +298,12 @@
 	#mixes{
 		h2{
 			font-size: 2rem;
+			@media screen and (max-width: 550px) {
+				font-size: 1.5rem;
+			}
+			@media screen and (max-width: 420px) {
+				font-size: 1.2rem;
+			}
 		}
 		.ml{
 			display: flex;
@@ -253,6 +328,11 @@
 					position: relative;
 					mask-image: url('/g/cdpch.png') ;
 					mask-size: 100% 100%;
+					@media screen and (max-width: 550px) {
+						width: 100%;
+						height: auto;
+						aspect-ratio: 3/2;
+					}
 					@keyframes sizzle {
 						from{
 							rotate: 5deg;
@@ -292,8 +372,16 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		@media screen and (max-width:420px) {
+			height: auto;
+		}
 		.text{
 			height: 300px;
+			@media screen and (max-width: 768px) {
+				max-width: 90%;
+				margin:  0 auto;
+				object-fit: contain;
+			}
 		}
 		position: relative;
 		z-index: 1;
@@ -303,6 +391,14 @@
 			object-fit: contain;
 			position: absolute;
 			
+			@media screen and (max-width: 1280px) {
+				opacity: 0.2;
+				z-index: -10;
+			}
+			@media screen and (max-width: 420px) {
+				height: 250px;
+				width: 250px;
+			}
 			animation: dancetobeat 0.25s cubic-bezier(0.215, 0.61, 0.355, 1) alternate-reverse infinite;
 			&.l{
 				left: -200px;

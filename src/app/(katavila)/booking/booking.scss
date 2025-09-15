@@ -7,6 +7,12 @@
 		background: linear-gradient(to right, #D442C3, #2456a9);
 		mask-image: url('/d/bhmask.png');
 		mask-size: 100% 100%;
+		@media screen and (max-width: 1280px) {
+			text-align: center;
+		}
+		@media screen and (max-width: 768px) {
+			font-size: 1.5rem;
+		}
 	}
 	.loading{
 		position: fixed;
@@ -47,12 +53,22 @@
 			grid-template-columns: 1fr 1fr;
 			max-width: min(90%, 1920px);
 			margin:  0 auto;
+			@media screen and (max-width: 1280px) {
+				display: flex;
+				flex-direction: column;
+			}
 			.l{
 				width: 100%;
 				img{
 					transform: translateY(-100px);
 					width: 100%;
 					height: auto;
+					@media screen and (max-width: 1280px) {
+						max-height: 400px;
+						transform: translateY(0px);
+
+						object-fit: contain;
+					}
 				}
 			}
 
@@ -61,17 +77,29 @@
 				flex-direction: column;
 				.mail{
 					margin-top: 100px;
+					@media screen and (max-width: 1280px) {
+						margin-top: 0px;
+					}
 					h2{
 						font-size: 2rem;
 						color: #FF00AE;
 						line-height: 1;
 						margin-bottom: 0;
+						@media screen and (max-width: 550px) {
+						}
 					}
 					a{
 						font-size: 4rem;
 						// line-height: 0.6;
 						display: block;
 						margin-top: -20px;
+						margin-bottom: 1em;
+						@media screen and (max-width: 550px) {
+							font-size: 2rem;
+							margin-top: 0px;
+							margin-bottom: 50px;
+							
+						}
 					}
 				}
 				p{
@@ -82,12 +110,23 @@
 					display: grid;
 					grid-template-columns: 1fr 1fr 1fr;
 					gap: 1em;
+					@media screen and (max-width: 768px) {
+						display: flex;
+						flex-direction: column;
+						justify-content: stretch;
+						flex: 1 1 0;
+					}
 				}
 				.field{
 					display: flex;
 					flex-direction: column;
 					margin: 1em 0;
+					@media screen and (max-width: 550px) {
+						margin: .25em 0;
+						margin-bottom: 1em;
+					}
 					gap: .5em;
+					min-width: 0%;
 					label{
 						color: #FF00AE;
 						text-transform: uppercase;
@@ -101,6 +140,7 @@
 						font-family: var(--fontch);
 						font-size: 1rem;
 						resize: none;
+						min-width: 0%;
 						option{
 							font-family: var(--fontch);
 						}
@@ -117,6 +157,11 @@
 					max-width: fit-content;
 					padding: .25em 1em;
 					padding-top: .5em;
+					@media screen and (max-width: 420px) {
+						width: 100%;
+						font-size: 1.5rem;
+						max-width: initial;
+					}
 				}
 			}
 		}
