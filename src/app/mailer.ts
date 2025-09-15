@@ -22,8 +22,8 @@ type MailData = {
 export async function SendMail(md:MailData) {
 	const info = await transport.sendMail({
 		from: 'DJ Katavila Website <vicnet.video@gmail.com>',
-		// to: 'mgmt@djkatavila.com',
-		to: 'shuba.dev313@gmail.com',
+		to: 'mgmt@djkatavila.com',
+		// to: 'shuba.dev313@gmail.com',
 		replyTo: md.email,
 		subject: `[Booking Request Form] A new request from ${md.name}!` ,
 		html:`
