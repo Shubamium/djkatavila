@@ -1,12 +1,50 @@
+'use client'
 import { Fa4 } from 'react-icons/fa6';
 import './booking.scss';
+import { SendMail } from '@/app/mailer';
+import { useState } from 'react';
+import { FaSpinner } from 'react-icons/fa';
 export default function Booking(){
+	const [loading,setLoading] = useState(false);
+	const [statusText,setStatusText] = useState('Loading . . .');
 	return <main id="p_booking">
 		<section id="bh">
 			<h2>BOOKING REQUEST FORM</h2>
 			
 		</section>
-		<form id="bf">
+
+		<div className={`loading ${loading ? 'active' : ''}`}>
+			<FaSpinner/>
+			<p>{statusText}</p>
+		</div>
+		<form id="bf" onSubmit={async (e)=>{
+			e.preventDefault();
+			const form = new FormData(e.target as HTMLFormElement);
+			// console.log(form.get('date'));
+			// return;
+			setStatusText('Sending...');
+			setLoading(true);
+			const res = await SendMail(
+				{
+					name: form.get('name') as string,
+					phone: form.get('phone') as string,
+					email: form.get('email') as string,
+					date: new Date(form.get('date') as string).toLocaleDateString(), 
+					timefrom: form.get('timefrom') as string,
+					timeto: form.get('timeto') as string,
+					mte: form.get('mte') as string,
+				}
+			)
+
+			if(res){
+				setStatusText('Your request has been sent successfully.');
+			}else{
+				setStatusText('There was an error sending your request.');
+			}
+			setTimeout(()=>{
+				setLoading(false);
+			},2000)
+		}}>
 				<div className="confine">
 					<div className="l">
 						<img src="/g/bookingpic.png" alt="" />
@@ -14,7 +52,7 @@ export default function Booking(){
 				<div className="r">
 					<div className="mail">
 						<h2>For Inquiries:</h2>
-						<a href="mailto:">your.email@gmail.com</a>
+						<a href="mailto:mgmt@djkatavila.com">mgmt@djkatavila.com</a>
 					</div>
 					<p>or submit a message:</p>
 					<div className="fg">
@@ -34,11 +72,11 @@ export default function Booking(){
 					<div className="fg">
 						<div className="field">
 							<label htmlFor="date">DATE:</label>
-							<input type="date"  required />
+							<input type="date" name='date'  required />
 						</div>
 						<div className="field">
 							<label htmlFor="timefrom">TIME FROM:</label>
-						<select name="hour" id='timefrom' required>
+						<select name="timefrom" id='timefrom' required>
   <option value="12:00 AM">12:00 AM</option>
   <option value="1:00 AM">1:00 AM</option>
   <option value="2:00 AM">2:00 AM</option>
@@ -67,8 +105,8 @@ export default function Booking(){
 
 						</div>
 							<div className="field">
-							<label htmlFor="timefrom">Time to:</label>
-						<select name="hour" id='timefrom'>
+							<label htmlFor="timeto">Time to:</label>
+						<select name="timeto" id='timeto'>
   <option value="12:00 AM">12:00 AM</option>
   <option value="1:00 AM">1:00 AM</option>
   <option value="2:00 AM">2:00 AM</option>
@@ -99,8 +137,8 @@ export default function Booking(){
 						
 					</div>
 					<div className="field">
-						<label htmlFor="misc">Music Type & Equipment:</label>
-						<textarea name="misc" id="misc" required placeholder='Write the detail here...'></textarea>
+						<label htmlFor="mte">Music Type & Equipment:</label>
+						<textarea name="mte" id="mte" required placeholder='Write the detail here...'></textarea>
 					</div>
 					<button className='btn btn-submit' type='submit'>SUBMIT </button>
 				</div>

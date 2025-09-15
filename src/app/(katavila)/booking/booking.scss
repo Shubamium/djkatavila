@@ -8,7 +8,37 @@
 		mask-image: url('/d/bhmask.png');
 		mask-size: 100% 100%;
 	}
-
+	.loading{
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		top: 0%;
+		left: 0%;
+		background: rgba(128, 0, 122, 0.329);
+		backdrop-filter: blur(10px);
+		opacity: 0;
+		user-select: none;
+		pointer-events: none;
+		transition: all 1500ms ease;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		svg{
+			width: 50px;
+			height: 50px;
+			animation: speen 1s infinite ease-in-out;
+		}
+		p{
+			font-size: 2rem;
+		}
+		&.active{
+			opacity: 1;
+			user-select: initial;
+			pointer-events: initial;
+		}
+		
+	}
 	#bf{
 		background: url('/b/texture.png');
 		padding-bottom: 200px;
