@@ -1,171 +1,174 @@
-#p_booking{
-	#bh{
-		font-size:3rem;
-		padding: .2em 0;
-		text-align: right;
-		margin-top: 100px;
-		background: linear-gradient(to right, #D442C3, #2456a9);
-		mask-image: url('/d/bhmask.png');
-		mask-size: 100% 100%;
-		@media screen and (max-width: 1280px) {
-			text-align: center;
-		}
-		@media screen and (max-width: 768px) {
-			font-size: 1.5rem;
-		}
-	}
-	.loading{
-		position: fixed;
-		height: 100%;
-		width: 100%;
-		top: 0%;
-		left: 0%;
-		background: rgba(128, 0, 122, 0.329);
-		backdrop-filter: blur(10px);
-		opacity: 0;
-		user-select: none;
-		pointer-events: none;
-		transition: all 1500ms ease;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		z-index: 100;
-		svg{
-			width: 50px;
-			height: 50px;
-			animation: speen 1s infinite ease-in-out;
-		}
-		p{
-			font-size: 2rem;
-		}
-		&.active{
-			opacity: 1;
-			user-select: initial;
-			pointer-events: initial;
-		}
-		
-		
-	}
-	#bf{
-		background: url('/b/texture.png');
-		padding-bottom: 200px;
-		.confine{
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			max-width: min(90%, 1920px);
-			margin:  0 auto;
-			@media screen and (max-width: 1280px) {
-				display: flex;
-				flex-direction: column;
-			}
-			.l{
-				width: 100%;
-				img{
-					transform: translateY(-100px);
-					width: 100%;
-					height: auto;
-					@media screen and (max-width: 1280px) {
-						max-height: 400px;
-						transform: translateY(0px);
+#p_booking {
+  #bh {
+    font-size: 3rem;
+    padding: 0.2em 0;
+    text-align: right;
+    margin-top: 100px;
+    background: linear-gradient(to right, #d442c3, #2456a9);
+    mask-image: url("/d/bhmask.png");
+    mask-size: 100% 100%;
+    @media screen and (max-width: 1280px) {
+      text-align: center;
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+  .loading {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    background: rgba(128, 0, 122, 0.329);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+    transition: all 1500ms ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 100;
+    svg {
+      width: 50px;
+      height: 50px;
+      animation: speen 1s infinite ease-in-out;
+    }
+    p {
+      font-size: 2rem;
+    }
+    &.active {
+      opacity: 1;
+      user-select: initial;
+      pointer-events: initial;
+    }
+  }
+  #bf {
+    background: url("/b/texture.png");
+    padding-bottom: 200px;
+    .confine {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: min(90%, 1920px);
+      margin: 0 auto;
+      @media screen and (max-width: 1280px) {
+        display: flex;
+        flex-direction: column;
+      }
+      .l {
+        width: 100%;
+        img {
+          transform: translateY(-100px);
+          width: 100%;
+          height: auto;
+          @media screen and (max-width: 1280px) {
+            max-height: 400px;
+            transform: translateY(0px);
 
-						object-fit: contain;
-					}
-				}
-			}
+            object-fit: contain;
+          }
+        }
+      }
 
-			.r{
-				display: flex;
-				flex-direction: column;
-				.mail{
-					margin-top: 100px;
-					@media screen and (max-width: 1280px) {
-						margin-top: 0px;
-					}
-					h2{
-						font-size: 2rem;
-						color: #FF00AE;
-						line-height: 1;
-						margin-bottom: 0;
-						@media screen and (max-width: 550px) {
-						}
-					}
-					a{
-						font-size: 4rem;
-						// line-height: 0.6;
-						display: block;
-						margin-top: -20px;
-						margin-bottom: 1em;
-						@media screen and (max-width: 550px) {
-							font-size: 2rem;
-							margin-top: 0px;
-							margin-bottom: 50px;
-							
-						}
-					}
-				}
-				p{
-					font-size: 2rem;
-					color: #2456a9;
-				}
-				.fg{
-					display: grid;
-					grid-template-columns: 1fr 1fr 1fr;
-					gap: 1em;
-					@media screen and (max-width: 768px) {
-						display: flex;
-						flex-direction: column;
-						justify-content: stretch;
-						flex: 1 1 0;
-					}
-				}
-				.field{
-					display: flex;
-					flex-direction: column;
-					margin: 1em 0;
-					@media screen and (max-width: 550px) {
-						margin: .25em 0;
-						margin-bottom: 1em;
-					}
-					gap: .5em;
-					min-width: 0%;
-					label{
-						color: #FF00AE;
-						text-transform: uppercase;
-						font-size: 1.5rem;
-					}
-					textarea,input,select{
-						padding: .8em;
-						border: 1px;
-						background: #1d1d1d;
-						outline: 2px solid grey;
-						font-family: var(--fontch);
-						font-size: 1rem;
-						resize: none;
-						min-width: 0%;
-						option{
-							font-family: var(--fontch);
-						}
-					}
-					textarea{
-						width: 100%;
-						min-height: 300px;
-					}
-				}
-				.btn-submit{
-					background: #FF00AE;
-					font-family: var(--fontch);
-					font-size: 2rem;
-					max-width: fit-content;
-					padding: .25em 1em;
-					padding-top: .5em;
-					@media screen and (max-width: 420px) {
-						width: 100%;
-						font-size: 1.5rem;
-						max-width: initial;
-					}
-				}
-			}
-		}
-	}
+      .r {
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        @media screen and (max-width: 768px) {
+          padding-top: 0px;
+        }
+        .mail {
+          margin-top: 100px;
+          @media screen and (max-width: 1280px) {
+            margin-top: 0px;
+          }
+          h2 {
+            font-size: 2rem;
+            color: #ff00ae;
+            line-height: 1;
+            margin-bottom: 0;
+            @media screen and (max-width: 550px) {
+            }
+          }
+          a {
+            font-size: 4rem;
+            // line-height: 0.6;
+            display: block;
+            margin-top: -20px;
+            margin-bottom: 1em;
+            @media screen and (max-width: 550px) {
+              font-size: 2rem;
+              margin-top: 0px;
+              margin-bottom: 50px;
+            }
+          }
+        }
+        p {
+          font-size: 2rem;
+          color: #2456a9;
+        }
+        .fg {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 1em;
+          @media screen and (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: stretch;
+            flex: 1 1 0;
+          }
+        }
+        .field {
+          display: flex;
+          flex-direction: column;
+          margin: 1em 0;
+          @media screen and (max-width: 550px) {
+            margin: 0.25em 0;
+            margin-bottom: 1em;
+          }
+          gap: 0.5em;
+          min-width: 0%;
+          label {
+            color: #ff00ae;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+          }
+          textarea,
+          input,
+          select {
+            padding: 0.8em;
+            border: 1px;
+            background: #1d1d1d;
+            outline: 2px solid grey;
+            font-family: var(--fontch);
+            font-size: 1rem;
+            resize: none;
+            min-width: 0%;
+            option {
+              font-family: var(--fontch);
+            }
+          }
+          textarea {
+            width: 100%;
+            min-height: 300px;
+          }
+        }
+        .btn-submit {
+          background: #ff00ae;
+          font-family: var(--fontch);
+          font-size: 2rem;
+          max-width: fit-content;
+          padding: 0.25em 1em;
+          padding-top: 0.5em;
+          @media screen and (max-width: 420px) {
+            width: 100%;
+            font-size: 1.5rem;
+            max-width: initial;
+          }
+        }
+      }
+    }
+  }
 }
