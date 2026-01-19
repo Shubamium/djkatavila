@@ -48,7 +48,7 @@ export default buildConfig({
       },
       clientUploads: true,
       config: {
-        endpoint: "https://minio-api.venmi.art",
+        endpoint: "https://minio-api.venmiart.com",
         credentials: {
           accessKeyId: process.env.MINIO_AK ?? "",
           secretAccessKey: process.env.MINIO_SK ?? "",
